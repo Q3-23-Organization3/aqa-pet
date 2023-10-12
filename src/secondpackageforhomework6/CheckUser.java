@@ -1,4 +1,4 @@
-package secondPackageForHomework6;
+package secondpackageforhomework6;
 
 import homework6.User;
 
@@ -27,8 +27,8 @@ public class CheckUser {
         getUser(user1);
         getUser(user2);
         getUser(user3);
-
     }
+    
     public static void getUser(User anyUser) {
         System.out.println();
         System.out.println("Name: " + anyUser.userName);
