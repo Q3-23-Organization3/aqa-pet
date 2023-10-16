@@ -31,12 +31,12 @@ public class Main {
 
         ProgrammableCalculator programmableCalculator = new ProgrammableCalculator();
 
-        double tangentResultPro = programmableCalculator.tangent(7);
+        double tangentResultPro = ProgrammableCalculator.tangent(7);
         System.out.println("ProgrammableCalculator");
         System.out.println();
         System.out.println("Result of tangent: " + tangentResultPro);
 
-        double sineResultPro = programmableCalculator.sine(90);
+        double sineResultPro = ProgrammableCalculator.sine(90);
         System.out.println("Result of sine: " + sineResultPro);
 
         double additionResultPro = programmableCalculator.addition(4.4, 232);

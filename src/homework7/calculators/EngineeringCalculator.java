@@ -2,15 +2,15 @@ package homework7.calculators;
 
 public class EngineeringCalculator extends Calculator {
 
-    public static double squareRoot(double a) {
+    public double squareRoot(double a) {
         return Math.sqrt(a);
     }
 
-    public static double numberToPower(double a, double b) {
+    public double numberToPower(double a, double b) {
         return Math.pow(a, b);
     }
 
-    public static double cosine(double a) {
+    public double cosine(double a) {
         return Math.cos(a);
     }
 
