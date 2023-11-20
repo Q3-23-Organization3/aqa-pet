@@ -1,37 +1,50 @@
 package homework9;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class RockPaperScissors {
+
+    private static final Logger log = LogManager.getLogger(RockPaperScissors.class);
+
     public static void main(String[] args) throws PlayerMoveException {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What's your move?");
+        log.info("What's your move?");
 
         while (true) {
             String[] moves = {"ROCK", "PAPER", "SCISSORS"};
             String playerMove = scanner.nextLine().toUpperCase();
-            validateMove(playerMove);
+
+            try {
+                validateMove(playerMove);
+            } catch (PlayerMoveException e) {
+                log.error("Not a valid move! Please, enter `ROCK`, `PAPER` or `SCISSORS` to play" + playerMove);
+                continue;
+            }
 
             Random random = new Random();
             int randomIndex = random.nextInt(moves.length);
             String computerMove = moves[randomIndex];
-            System.out.println("Computer chose: " + computerMove);
-            System.out.println("******************");
+            log.info("Computer chose: " + computerMove);
+            log.debug("******************");
 
             if (playerMove.equals(computerMove)) {
-                System.out.println("It`s a tie! Keep playing to win!");
+                log.info("It`s a tie! Keep playing to win!");
             } else if ((playerMove.equals("ROCK") && computerMove.equals("SCISSORS")) ||
                     (playerMove.equals("PAPER") && computerMove.equals("ROCK")) ||
                     (playerMove.equals("SCISSORS") && computerMove.equals("PAPER"))) {
-                System.out.println("Congratulations! You win!");
+                log.info("Congratulations! You win!");
             } else {
-                System.out.println("Computer wins!");
+                log.info("Computer wins!");
             }
 
-            System.out.println("******************");
-            System.out.println("What's your next move?");
+            log.debug("******************");
+            log.info("What's your next move?");
         }
     }
 
