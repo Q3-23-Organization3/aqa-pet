@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class PitchforkTests {
 
     private static WebDriver DRIVER;
@@ -41,7 +40,7 @@ public class PitchforkTests {
     void blockVideosIsPresentTest() {
         acceptCookie();
         WebElement blockWithVideos = HOME_PAGE.blockWithVideos();
-        DRIVER.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
+        DRIVER.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         assertNotNull(blockWithVideos);
         assertEquals("videos", blockWithVideos.getAttribute("id"));
     }
@@ -61,9 +60,9 @@ public class PitchforkTests {
     @Test
     void isElementPresentTest() {
         acceptCookie();
-        String newsMenuElement = HEADER.getNewsMenuElement();
-        assertNotNull(newsMenuElement);
-        assertEquals("NEWS", newsMenuElement);
+        String menuElementNews = HEADER.getMenuElementsNews();
+        assertNotNull(menuElementNews);
+        assertEquals("NEWS", menuElementNews);
     }
 
     @Test
@@ -92,7 +91,7 @@ public class PitchforkTests {
         REVIEWS_PAGE.clickReviewsMenuElement();
         REVIEWS_PAGE.findPlayButton();
         //no click
-        assertThrows(org.openqa.selenium.NoSuchElementException.class, () -> REVIEWS_PAGE.findPlayer());
+        assertThrows(org.openqa.selenium.NoSuchElementException.class, () -> REVIEWS_PAGE.findPlayer().getText());
     }
 
     @AfterAll

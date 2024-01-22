@@ -1,24 +1,27 @@
 package com.shyshko.test.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private static final By VIDEOS = By.id("videos");
+    @FindBy(id = "videos")
+    private WebElement videosElement;
     private WebDriver driver;
     private Header header;
     private ReviewsPage reviewsPage;
 
     public WebElement blockWithVideos() {
-        return driver.findElement(VIDEOS);
+        return videosElement;
     }
 
     public HomePage(WebDriver driver, Header header, ReviewsPage reviewsPage) {
-        this.driver = driver;
+        super(driver);
         this.header = header;
         this.reviewsPage = reviewsPage;
+        PageFactory.initElements(driver, this);
     }
 
     public WebDriver getDriver() {
