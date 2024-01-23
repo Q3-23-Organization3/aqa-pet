@@ -30,6 +30,8 @@ public class UniqueWordsCount {
         for (String word : wordsInText) {
             if (wordToCountMap.containsKey(word)) {
                 wordToCountMap.put(word, wordToCountMap.get(word) + 1);
+            } else {
+                wordToCountMap.put(word, 1);
             }
         }
 

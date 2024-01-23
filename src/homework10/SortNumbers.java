@@ -1,7 +1,7 @@
 package homework10;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortNumbers {
@@ -14,9 +14,9 @@ public class SortNumbers {
         originalList.add(9);
         originalList.add(1);
         originalList.add(6);
-        int X = 4;
+        int x = 4;
 
-        sortedList(originalList, X);
+        sortedList(originalList, x);
 
         System.out.println("Sorted List: " + originalList);
     }
@@ -37,6 +37,6 @@ public class SortNumbers {
         list.addAll(lessThanX);
         list.addAll(greaterThanX);
 
-        Collections.sort(list);
+        list.sort(Comparator.naturalOrder());
     }
 }
